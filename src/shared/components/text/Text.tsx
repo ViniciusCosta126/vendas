@@ -10,15 +10,50 @@ interface TextProps extends TextPropsNative {
 }
 
 const Text = ({ type, color, ...props }: TextProps) => {
-  const handleSize = useMemo(() => {
+  const renderFontSize = useMemo(() => {
     switch (type) {
-      case TextTypes.TITLE:
-        return '32px';
-
+      case TextTypes.TITLE_BOLD || TextTypes.TITLE_LIGHT || TextTypes.TITLE_REGULAR:
+        return '24px';
+      case TextTypes.SUB_TITLE_BOLD || TextTypes.SUB_TITLE_LIGHT || TextTypes.SUB_TITLE_REGULAR:
+        return '20px';
+      case TextTypes.PARAGRAPH_BOLD || TextTypes.PARAGRAPH_LIGHT || TextTypes.PARAGRAPH_REGULAR:
+        return '14px';
+      case TextTypes.PARAGRAPH_SMALL_BOLD ||
+        TextTypes.PARAGRAPH_SMALL_LIGHT ||
+        TextTypes.PARAGRAPH_SMALL_REGULAR:
+        return '10px';
+      case TextTypes.BUTTON_BOLD || TextTypes.BUTTON_LIGHT || TextTypes.BUTTON_REGULAR:
+        return '18px';
       default:
-        return '16px';
+        return '14px';
     }
   }, [type]);
-  return <ContainerText size={handleSize} color={color} {...props} />;
+  const renderfontFamily = useMemo(() => {
+    switch (type) {
+      case TextTypes.TITLE_BOLD ||
+        TextTypes.BUTTON_BOLD ||
+        TextTypes.SUB_TITLE_BOLD ||
+        TextTypes.PARAGRAPH_BOLD ||
+        TextTypes.PARAGRAPH_SMALL_BOLD:
+        return 'Poppins-Bold';
+
+      case TextTypes.TITLE_LIGHT ||
+        TextTypes.BUTTON_LIGHT ||
+        TextTypes.SUB_TITLE_LIGHT ||
+        TextTypes.PARAGRAPH_LIGHT ||
+        TextTypes.PARAGRAPH_SMALL_LIGHT:
+        return 'Poppins-Light';
+
+      case TextTypes.TITLE_REGULAR ||
+        TextTypes.BUTTON_REGULAR ||
+        TextTypes.SUB_TITLE_REGULAR ||
+        TextTypes.PARAGRAPH_REGULAR ||
+        TextTypes.PARAGRAPH_SMALL_REGULAR:
+        return 'Poppins-Regular';
+      default:
+        return 'Poppins-Regular';
+    }
+  }, [type]);
+  return <ContainerText family={renderfontFamily} size={renderFontSize} color={color} {...props} />;
 };
 export default Text;
