@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "fix":"eslint . --fix",
+    "fix": "eslint . --fix",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
