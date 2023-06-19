@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 import Button from '../../../shared/components/button/Button';
 import Input from '../../../shared/components/input/Input';
@@ -13,14 +13,12 @@ const Loguin = () => {
   return (
     <View>
       <ContainerLoguin>
-        <Text>Loguin</Text>
-        <Input />
+        <Input placeholder="Email:" title="Email" />
         <Button
           type={theme.buttons.buttonsTheme.primary}
           title="Entrar"
           onPress={handleOnPress}
           margin="8px"
-          loading
         />
       </ContainerLoguin>
     </View>

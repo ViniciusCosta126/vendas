@@ -7,9 +7,10 @@ import { TextTypes } from './textTypes';
 interface TextProps extends TextPropsNative {
   color?: string;
   type?: string;
+  customMargin?: string;
 }
 
-const Text = ({ type, color, ...props }: TextProps) => {
+const Text = ({ type, color, customMargin, ...props }: TextProps) => {
   const renderFontSize = useMemo(() => {
     switch (type) {
       case TextTypes.TITLE_BOLD:
@@ -73,6 +74,14 @@ const Text = ({ type, color, ...props }: TextProps) => {
         return 'Poppins-Regular';
     }
   }, [type]);
-  return <ContainerText family={renderfontFamily} size={renderFontSize} color={color} {...props} />;
+  return (
+    <ContainerText
+      customMargin={customMargin}
+      family={renderfontFamily}
+      size={renderFontSize}
+      color={color}
+      {...props}
+    />
+  );
 };
 export default Text;

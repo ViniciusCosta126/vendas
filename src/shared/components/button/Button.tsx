@@ -21,7 +21,7 @@ const Button = ({ title, margin, type, loading, disabled, onPress, ...props }: B
   const renderText = (color: string) => (
     <>
       <Text type={TextTypes.BUTTON_SEMI_BOLD} color={color}>
-        {title}
+        {loading ? 'Enviando...' : title}
       </Text>
       {loading && <ActivityIndicator color={theme.colors.neutralTheme.white} />}
     </>
