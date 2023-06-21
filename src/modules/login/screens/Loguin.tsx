@@ -15,7 +15,8 @@ const Loguin = () => {
     <View>
       <ContainerLoguin>
         <Icon name="home3" size={30} />
-        <Input placeholder="Email:" title="Email" />
+        <Input placeholder="Email:" title="Email" customMargin="0px 0px 8px 0px" />
+        <Input placeholder="Senha:" title="Senha" secureTextEntry />
         <Button
           type={theme.buttons.buttonsTheme.primary}
           title="Entrar"
