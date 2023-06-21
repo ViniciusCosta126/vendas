@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 
 import Button from '../../../shared/components/button/Button';
+import { Icon } from '../../../shared/components/icon/Icon';
 import Input from '../../../shared/components/input/Input';
 import { theme } from '../../../shared/themes/theme';
 import { ContainerLoguin } from '../styles/login.style';
@@ -13,6 +14,7 @@ const Loguin = () => {
   return (
     <View>
       <ContainerLoguin>
+        <Icon name="home3" size={30} />
         <Input placeholder="Email:" title="Email" />
         <Button
           type={theme.buttons.buttonsTheme.primary}
