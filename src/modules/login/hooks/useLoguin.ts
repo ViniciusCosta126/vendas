@@ -1,6 +1,7 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
+
+import { connectionAPIPost } from '../../../shared/functions/connection/connectionAPI';
 export const useLoguin = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -9,14 +10,12 @@ export const useLoguin = () => {
 
   const handleOnPress = async () => {
     setLoading(true);
-    await axios
-      .post('http://192.168.0.107:8080/auth', {
-        email,
-        password,
-      })
-      .catch(() => {
-        setErrorMessage('Usuario ou senha invalidos');
-      });
+    await connectionAPIPost('http://192.168.0.107:8080/auth', {
+      email,
+      password,
+    }).catch(() => {
+      setErrorMessage('Usuario ou senha invalidos');
+    });
     setLoading(false);
   };
 
