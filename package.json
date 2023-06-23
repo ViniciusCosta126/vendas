@@ -11,11 +11,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@types/styled-components-react-native": "^5.2.1",
     "axios": "^1.4.0",
     "react": "18.2.0",
     "react-native": "0.71.11",
     "react-native-vector-icons": "^9.2.0",
+    "react-redux": "^8.1.1",
     "styled-components": "^6.0.0-rc.3"
   },
   "devDependencies": {
